@@ -1,0 +1,70 @@
+DevOps is a set of practice that aim to improve and automate the processes between software development (Dev) and IT operations (Ops)
+DevOps is required because it helps organizations deliver better software faster, improve collaboration between development and operations, automate tedious processes, and ensure higher-quality products while minimizing risks
+
+The OSI Model (Open Systems Interconnection Model) is a conceptual framework used to understand and describe how different network protocols interact in a network. It divides the communication process into seven distinct layers, each with specific responsibilities.
+Layer 1: Physical Layer
+Function: Responsible for the transmission of raw bits (0s and 1s) over a physical medium such as cables (fiber optics, coaxial, twisted pair), radio waves (Wi-Fi), or other hardware components.
+
+Layer 2: Data Link Layer
+Function: Ensures reliable transmission of data frames over the physical medium. It provides error detection and correction, flow control, and MAC (Media Access Control) addressing.
+
+Layer 3: Network Layer
+Function: Responsible for determining the best path to route data packets across a network and between different networks. It handles logical addressing (IP addressing) and routing.
+
+Layer 4: Transport Layer
+Function: Ensures end-to-end communication, reliability, and data integrity. It segments and reassembles data and provides flow control and error recovery.
+
+Layer 5: Session Layer
+Function: Manages and controls the dialog (session) between two applications. It establishes, maintains, and terminates connections between devices.
+
+Layer 6: Presentation Layer
+Function: Responsible for translating data formats and ensuring that the data is readable by the application layer. It handles data encryption, compression, and translation between different data formats.
+
+Layer 7: Application Layer
+Function: The topmost layer, which interacts directly with the user and provides network services such as email, file transfer, and web browsing.
+
+The TCP/IP model is essential for the internet's operation, handling how data is transferred, routed, and addressed across diverse networks. It relies on protocols like TCP (for reliable data transmission) and IP (for addressing and routing), and it supports everything from web browsing to email communication. The simplicity and robustness of TCP/IP have made it the standard for modern networking.
+The TCP/IP model is more simplified and practical, with 4 layers, compared to the OSI model, which has 7 layers.
+
+Internet Protocol (IP):
+Purpose: IP is responsible for addressing and routing packets of data across different networks, ensuring that they reach the correct destination. It defines the logical addressing system used for devices in a network.
+
+Encoding is about transforming data for compatibility, and is not meant to secure the data. It’s easily reversible without the need for any keys.
+Encryption is designed to protect data and prevent unauthorized access. It makes the data unreadable to unauthorized users and requires a decryption key to revert to its original form.
+
+ARP (Address Resolution Protocol) is used to map IP addresses to MAC addresses in local area networks, ensuring proper data transmission at the data link layer.
+
+Port is a logical endpoint used for communication between devices on a network. Ports allow multiple services or applications to run on a single device or IP address, distinguishing the specific application or service a network packet is intended for. Each port is identified by a unique number, which helps in routing the traffic to the correct application or service.
+Port 80: HTTP (Hypertext Transfer Protocol) for web traffic.
+Port 443: HTTPS (secure HTTP) for encrypted web traffic.
+Port 25: SMTP (Simple Mail Transfer Protocol) for email transmission.
+(1-1024 reserved port number)
+
+Subnetting is the process of dividing a larger network into smaller, more manageable subnetworks, called subnets. Subnetting allows an organization to efficiently allocate IP addresses and manage network traffic within different segments or departments.
+
+NAT is a technique used in networking to translate private IP addresses used within a local network into a public IP address (or vice versa) for communication over the internet. This helps conserve public IP addresses and enables multiple devices on a local network to share a single public IP address.
+In NAT, Private IP addresses are translated into the public IP address.
+It have 3 types: Static, Dynamic NAT and PAT/ NAT Overloading/IP masquerading.
+In PAT, Private IP addresses are translated into the public IP address via Port numbers.
+It also have two types: Static and Overloaded PAT.
+
+{Subnetting is the process of dividing a large network into smaller subnets to optimize address allocation and network management.
+NAT is a technique used to allow devices with private IP addresses to communicate with external networks (like the internet) using public IP addresses, typically conserving public IP addresses.}
+
+Scalability refers to the ability of a network or system to grow and handle increased demand over time, either through adding more resources or upgrading existing ones.
+Elasticity is the ability to automatically adjust resources in real time based on changing demand, typically seen in cloud environments.
+Both scalability and elasticity are important for modern networks and systems to ensure they can handle varying workloads efficiently, optimize resource usage, and ensure performance under different conditions.
+
+Load balancer is a device or software application that distributes incoming network or application traffic across multiple servers to ensure no single server is overwhelmed, improving the availability, reliability, and performance of applications or websites.
+
+Modem connects to your internet service provider (ISP) and provides access to the internet.
+It converts the incoming signal from the ISP (whether it's DSL, cable, fiber, or another type) into a digital signal that your devices can understand and use.
+
+Router distributes that internet connection to multiple devices in your home or office, either through wired connections or Wi-Fi.
+It creates a local network (wired or wireless), allowing multiple devices to connect to the internet simultaneously. It also assigns local IP addresses to each device on the network, manages traffic, and provides security features like a firewall.
+
+Topology in networking refers to the physical or logical arrangement of devices and connections within a network. It defines how different network devices like computers, servers, routers, switches, and other components are connected and communicate with each other.
+Bus Topology:All devices are connected to a single central cable
+Star Topology:All devices are connected to a central device, typically a switch or hub.
+Ring Topology:Each device is connected to two other devices, forming a closed loop (ring).
+Mesh Topology:Every device is connected to every other device in the network.
