@@ -1,0 +1,125 @@
+------MICROSERVICES ARCHITECTURE----
+
+Monolithic refers to a system or architecture that is unified, centralized, and structured as a single, indivisible unit. The term is commonly used in the context of software development and systems architecture to describe an approach where all components of the system are tightly integrated and share a single codebase or framework.
+---everything packed into a single code---
+
+Authentication is the process of verifying the identity of a user, device, or system. It ensures that the entity attempting to access a system or network is who it claims to be.
+Who the user is.
+Authorization is the process of determining what an authenticated user, device, or system is allowed to do within a network or application. It defines the level of access or permissions granted to the authenticated entity.
+What the user is allowed to do
+
+Synchronization refers to the coordination of processes or threads in a way that ensures that they work together in a controlled manner, usually by ensuring that shared resources are accessed in an orderly sequence. The goal of synchronization is to prevent race conditions, data inconsistency, and other concurrency issues when multiple tasks run simultaneously.
+------waiting for the response-----
+Asynchronization refers to the execution of tasks without the need for waiting or coordination between tasks. In asynchronous systems, tasks can proceed independently, without blocking or being synchronized to other tasks. When one task finishes, it notifies or triggers the next task.
+------comeback and check later-----
+
+server farm (also known as a data center or server cluster) is a collection of servers that are housed together in a central location and work collectively to provide services, host applications, or manage data for users or clients. Server farms are commonly used by organizations to ensure scalability, reliability, and high availability for their services, especially for large-scale web applications, cloud services, and enterprise systems.
+---collection of physical server that work together to deliver the application or data.
+
+IPsec (Internet Protocol Security) is a suite of protocols used to secure Internet Protocol (IP) communications by authenticating and encrypting each IP packet in a communication session. It is widely used for Virtual Private Networks (VPNs) and secure communication over the internet or other untrusted networks.
+IPsec provides confidentiality, integrity, and authenticity for IP communications, ensuring that data exchanged between devices is protected against eavesdropping, tampering, and unauthorized access. 
+
+Firewall is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules. It acts as a barrier between a trusted internal network (such as a corporate network or personal device) and an untrusted external network (such as the internet). The primary function of a firewall is to protect the internal network from unauthorized access, cyberattacks, and other security threats.
+Key Functions of a Firewall:
+1.Traffic Filtering
+2.Access Control
+3.Protection Against Cyberattacks
+4.Network Segmentation
+5.Logging and Monitoring
+Firewalls use rules (or access control lists, ACLs) to decide what traffic is allowed and what traffic is blocked. These rules are based on various criteria, such as:
+IP Address: Specify which IP addresses are allowed or denied access to the network.
+Port Number: Restrict traffic based on the port used (e.g., blocking access to port 80 for HTTP).
+Protocol: Specify the type of protocol being used, such as TCP, UDP, ICMP, etc.
+Direction: Define whether the traffic is incoming or outgoing.
+State: Define whether the traffic is part of an established connection or is a new connection.
+
+Threat is any potential danger or event that can exploit a vulnerability to harm an organization’s systems, data, or operations. Threats can come from a variety of sources, both internal and external, and can take many forms, such as human actions, natural events, or technical failures.
+
+Vulnerability is a weakness or flaw in a system, network, application, or process that can be exploited by a threat to gain unauthorized access, cause damage, or disrupt normal operations. Vulnerabilities are often the result of coding errors, misconfigurations, poor practices, or outdated systems.
+
+Risk refers to the likelihood of a threat exploiting a vulnerability and causing harm, such as loss of data, financial damage, operational disruption, or reputational harm. Risk is typically expressed as a combination of the probability (likelihood) of an event occurring and the impact (consequence) that event would have on the organization.
+Risk=Threat×Vulnerability×Impact
+
+Reverse proxy is a server that sits between client devices and a web server. Its primary function is to handle requests from clients on behalf of the web server. Essentially, it acts as an intermediary that takes requests from users and forwards them to the appropriate backend server. After receiving the response from the backend server, the reverse proxy sends it back to the client.
+---proxy is used in rooting---
+
+IPv4 (Internet Protocol version 4)
+Address Length: 32 bits, typically written in dotted decimal notation (e.g., 192.168.0.1).
+Number of Addresses: Can provide approximately 4.3 billion unique addresses (2^32).
+Address Format: Consists of four octets (each 8 bits), separated by dots.
+Exhaustion: IPv4 addresses have become scarce due to the growing number of devices connected to the internet, leading to the need for techniques like NAT (Network Address Translation).
+Security: Security features like encryption and authentication were not built into the original design, although they are added via protocols like IPSec.
+Deployment: Still widely used and the most common version on the internet today.
+IPv6 (Internet Protocol version 6)
+Address Length: 128 bits, written in hexadecimal and separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
+Number of Addresses: Can provide an extremely large number of unique addresses—around 340 undecillion (3.4 × 10^38) unique addresses.
+Address Format: Eight groups of four hexadecimal digits (16 bits per group).
+Exhaustion: IPv6 was designed to provide an almost limitless number of IP addresses, solving the problem of IPv4 address exhaustion.
+Security: Built-in security features, including mandatory support for IPSec (Internet Protocol Security), to ensure data confidentiality and integrity.
+Deployment: Adoption is increasing but still in transition, as IPv4 and IPv6 can coexist in many networks during the transition period.
+
+3-way handshake is the process used in TCP (Transmission Control Protocol) to establish a reliable connection between a client and a server. It ensures that both sides are ready to communicate and have synchronized their sequence numbers.
+Purpose of the 3-Way Handshake:
+Reliability: Ensures that both sides are ready to communicate and have synchronized their initial sequence numbers for proper data tracking.
+Error Handling: If any step fails (e.g., no response from the server), the connection attempt can be retried or handled appropriately.
+Connection Establishment: Provides a secure and orderly way to set up a connection before any actual data is transmitted.
+
+The Twelve Factors
+I. Codebase:-One codebase tracked in revision control, many deploys
+II. Dependencies:-Explicitly declare and isolate dependencies
+III. Config:-Store config in the environment
+IV. Backing services:-Treat backing services as attached resources
+V. Build, release, run:-Strictly separate build and run stages
+VI. Processes:-Execute the app as one or more stateless processes
+VII. Port binding:-Export services via port binding
+VIII. Concurrency:-Scale out via the process model
+IX. Disposability:-Maximize robustness with fast startup and graceful shutdown
+X. Dev/prod parity:-Keep development, staging, and production as similar as possible
+XI. Logs:-Treat logs as event streams
+XII. Admin processes:-Run admin/management tasks as one-off processes
+
+TCP is used for applications where reliability, data integrity, and correct order are critical, even if it comes with higher overhead and slower speeds.
+UDP is used for applications where speed is more important than reliability, and where some packet loss is acceptable, such as in real-time streaming and gaming.
+
+---NAT is a service that enables private ip network to use the internet and cloud---
+
+Router is used to connect different networks, such as connecting a local area network (LAN) to the internet (wide area network, WAN).
+It works at the network layer (Layer 3 of the OSI model).
+Routers determine the best path for data packets to travel across networks based on IP addresses. They forward data between networks, making decisions based on routing tables and protocols like OSPF, BGP, or RIP.
+
+-Switch is used to connect devices within the same local area network (LAN) and facilitate communication between them.
+It operates at the data link layer (Layer 2) but can also work at Layer 3 (for Layer 3 switches).
+switch uses MAC addresses to forward data frames to the correct device within the same network. It builds a MAC address table to track which devices are connected to which ports, allowing it to forward data efficiently.
+
+Hub is a simple networking device used to connect multiple devices in a network, creating a central point for communication.
+Hubs operate at the physical layer (Layer 1) and forward data packets to all connected devices, regardless of the destination address. 
+This means that all devices receive the data, even if the packet is meant for only one device, leading to higher network traffic.
+
+-Bridge is a device used to connect and filter traffic between two or more network segments, typically within the same local area network (LAN). Its primary function is to improve network efficiency by reducing collisions and managing data traffic.
+
+-Gateway is a device or software that acts as an entry or exit point between two different networks, often serving as a bridge between a local network (e.g., a home or corporate network) and other networks like the internet or a different segment of a larger network.
+--it is a type of network which help us to connect two different types of network.
+
+A data server typically does not provide IP addresses directly. However, a server can provide IP addresses in specific scenarios, particularly in the context of Dynamic Host Configuration Protocol (DHCP).
+A data server (such as a web or database server) typically does not provide IP addresses directly, unless it is functioning as a DHCP server.
+DHCP servers (which may be routers, dedicated servers, or network devices) are responsible for assigning dynamic IP addresses to clients.
+A server can also be assigned a static IP address for its specific role, such as hosting a website or service.
+
+IaaS, PaaS, and SaaS are three fundamental categories of cloud computing services
+
+IaaS provides the foundational infrastructure for cloud computing. It offers virtualized physical computing resources over the internet, such as servers, storage, networking, and virtual machines.
+With IaaS, users manage the operating system, applications, and data, while the provider manages the physical hardware and infrastructure.
+IaaS (Infrastructure as a Service) is ideal for businesses that need flexible, scalable computing resources but want to avoid the overhead of managing physical hardware.
+ex:-Amazon Web Services (AWS) EC2 (Elastic Compute Cloud)
+
+PaaS (Platform as a Service) provides a platform that allows developers to build, deploy, and manage applications without worrying about the underlying infrastructure. It abstracts the infrastructure layer and offers services like databases, development tools, middleware, and application hosting.
+With PaaS, users focus on coding, deploying, and managing applications, while the provider handles infrastructure, operating systems, and runtime environments.
+PaaS is great for developers who need to build web applications or software solutions quickly without getting involved in hardware management or the complexities of underlying platforms.
+ex:-Google App Engine
+
+SaaS (Software as a Service)
+SaaS delivers software applications over the internet on a subscription basis. These applications are fully managed by the provider and are accessible via web browsers or thin clients.
+With SaaS, the user only interacts with the software through a web interface. They don’t need to worry about maintenance, updates, or infrastructure.
+SaaS is ideal for businesses and individual users who need access to fully functional software without the need for installation or management.
+ex:-Google Workspace (formerly G Suite, includes Gmail, Docs, Sheets)
+These cloud service models allow businesses and developers to choose the level of control, flexibility, and management responsibility they want, depending on their needs.
