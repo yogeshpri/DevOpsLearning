@@ -1,0 +1,44 @@
+socket: It is an endpoint for sending or receiving data across a network. It represents the combination of an IP address and a port number used by applications for communication over the internet or local networks.
+Socket = IP Address + Port Number
+Port: A number used to specify a particular service or application on a device that is involved in network communication.
+
+Ping is a diagnostic tool used to test the connectivity between two devices on a network. It helps determine if a particular IP address (usually a device or server) is reachable and how long it takes for data to travel between the two devices.
+
+Cookies in networking are small data pieces that store information about users between sessions. They are used in web communication to manage sessions, store preferences, authenticate users, and track activity.
+They are sent from a server to a client (usually a browser) and stored locally, and then sent back with future requests to enable persistent user experiences.
+Security and privacy measures are important when using cookies to prevent misuse and unauthorized access.
+
+A VPN (Virtual Private Network) is a technology that allows you to create a secure, encrypted connection over the internet, essentially creating a "private" network across a public one. It helps protect your data from eavesdropping, bypass geographical restrictions, and maintain privacy while browsing or using online services.
+Benefits of VPN:
+Security: Protects your data from hackers, especially when using public Wi-Fi networks.
+Privacy: Hides your IP address, making it difficult for websites and online services to track your online activity.
+Bypass Geo-restrictions: Allows you to access content that is restricted in certain countries or regions, like streaming services or websites.
+Safe Remote Access: Allows employees to securely access corporate networks from remote locations.
+
+A checksum is a simple but effective way to verify the integrity of data by detecting errors during transmission or storage. If the checksum of received data matches the expected checksum, it indicates the data is correct; otherwise, an error has occurred.
+
+ARP (Address Resolution Protocol) is a network protocol used to map an IP address (which is used for network routing) to a MAC address (Media Access Control address, which is a hardware address for devices on a local network). This is important because devices on a local network communicate using MAC addresses, but higher-level protocols like IP rely on IP addresses for routing data.
+
+MAC address (Media Access Control address) is a unique identifier assigned to the network interface card (NIC) of a device, such as a computer, smartphone, or router, used for communication on a local area network (LAN). It operates at the Data Link Layer (Layer 2) of the OSI model and is used to uniquely identify devices within a network, typically for Ethernet or Wi-Fi networks.
+Each MAC address is supposed to be globally unique, which means no two devices should have the same MAC address. This uniqueness is typically ensured by the manufacturer.
+It is a 48-bit address, typically written in hexadecimal format, and operates at the Data Link Layer of the OSI model.
+
+Hop refers to the passage of data from one device (such as a router or switch) to another along the path between the source and the destination.
+
+IP range refers to the range of usable IP addresses within a given subnet. It is determined by the network’s IP address and subnet mask (or CIDR prefix). The IP range defines the addresses that can be assigned to devices (hosts) on the network.
+Network ID is the identifier of the entire subnet. It represents the first address in the subnet and cannot be assigned to a device.
+Broadcast IP address is the last IP address in a given subnet. It is used for broadcasting messages to all devices on the network. It can’t be assigned to an individual device.
+
+A subnet mask is a 32-bit number used in IP networking to divide an IP address into two parts: the network part and the host part. It helps determine which portion of an IP address refers to the network and which part refers to individual devices (hosts) on that network.
+
+VPC (Virtual Private Cloud) is a virtualized private network that exists within a public cloud environment, such as Amazon Web Services (AWS), Google Cloud Platform (GCP), or Microsoft Azure. It allows you to launch resources, like virtual machines, storage, and databases, in an isolated network that you define. VPCs are fundamental for creating secure and segmented environments for cloud-based applications and services.
+
+NAT (Network Address Translation) is a technique used in networking to modify the source or destination IP address of packets as they traverse a router or firewall. It helps in managing IP address usage, improving security, and enabling multiple devices on a local network to share a single public IP address when accessing the internet.
+NAT is commonly used in private networks (e.g., home or corporate networks) to allow devices within the network to communicate with external networks like the internet while keeping internal IP addresses hidden.
+Types of NAT
+Static NAT, a fixed, one-to-one mapping is created between an internal IP address and a public IP address.
+This is useful for applications or services that need a consistent, publicly accessible address, such as a web server.
+Example: Internal IP 192.168.1.10 mapped to Public IP 203.0.113.5.
+Dynamic NAT, an internal IP address is mapped to a public IP address from a pool of available public addresses.
+It is not a fixed mapping, meaning the internal IP address might be mapped to a different public IP address each time.
+Example: Internal IP 192.168.1.10 might be mapped to a random public IP like 203.0.113.5 from the pool.
