@@ -1,0 +1,85 @@
+Database Concepts
+A database is an organized collection of structured data, typically stored and accessed electronically from a computer system. The primary objective of a database is to store data in a way that allows for easy retrieval, management, and manipulation.
+
+Key Database Concepts include:
+Data: The raw facts and figures stored in a database (e.g., customer names, orders, etc.).
+Database Management System (DBMS): A software system used to manage databases. It allows users to define, create, manage, and manipulate data in databases. Examples include MySQL, PostgreSQL, Microsoft SQL Server, and Oracle.
+Table: A collection of related data organized in rows and columns. Each table typically represents an entity (e.g., a "Customer" table).
+Row (or Record): A single, data set in a table, typically representing an instance of the entity (e.g., a single customer).
+Column (or Field): A specific attribute of the entity (e.g., "Customer Name" or "Customer ID").
+Primary Key: A unique identifier for each record in a table. It ensures that each row can be uniquely identified.
+Foreign Key: A field in one table that uniquely identifies a row of another table, establishing relationships between tables.
+Index: A data structure used to improve the speed of data retrieval operations on a database table.
+Schema: The structure that defines the organization of the data in the database, including tables, relationships, and other database objects.
+2. Database Architecture
+Database architecture refers to the design and layout of the system that governs how data is stored, managed, and accessed. It defines the components that make up the database system and how they interact with each other. Database architectures are typically categorized into different layers or models.
+
+Three-Tier Architecture
+The three-tier architecture is a common design for modern database systems. It separates the system into three layers:
+Presentation Layer (Client Layer):
+This layer consists of the user interface that interacts with the user.
+It can be a web interface, desktop application, or mobile app.
+Users interact with the database indirectly via the application layer.
+Application Layer (Business Logic Layer):
+The middle tier where business logic, application rules, and database queries are processed.
+It acts as an intermediary between the client and the database.
+This layer is responsible for ensuring data integrity, security, and proper data flow between the client and the database.
+Data Layer (Database Layer):
+The actual database that stores and retrieves data.
+This layer contains the DBMS and the database itself, which manage how data is stored, organized, and accessed.
+Each tier communicates with the other in a way that ensures modularity, scalability, and maintainability.
+
+3. Types of Database Architectures
+Databases can be organized and structured in various ways depending on the system’s needs. The common database architecture models are:
+
+1. Single-Tier Architecture
+In single-tier architecture, the database is directly accessed by the user or application. All database operations (including queries, updates, etc.) are performed locally, without the need for additional middleware.
+This architecture is simple but is not scalable or suitable for large-scale systems.
+2. Two-Tier Architecture
+Two-tier architecture consists of two layers: the client and the server.
+The client directly communicates with the database server. The client is responsible for user interaction, while the server handles data storage and management.
+This model is common in smaller applications but can become inefficient for large-scale systems with many users.
+3. Three-Tier Architecture (as described above)
+Three-tier architecture introduces a middle layer between the client and the database.
+It is more scalable, providing better performance and flexibility by separating the presentation layer, business logic, and data layer.
+4. N-Tier Architecture
+N-tier architecture extends the concept of multi-tier systems by introducing more layers. For example, layers for caching, load balancing, or external services.
+It is typically used in large enterprise systems or cloud-based systems.
+4. Database Models
+There are several database models that define how data is structured and accessed. The most commonly used models are:
+
+1. Relational Model (RDBMS)
+In a relational database, data is stored in tables (relations) that are related to each other using keys (primary keys and foreign keys).
+SQL (Structured Query Language) is typically used to interact with relational databases.
+Examples: MySQL, PostgreSQL, Oracle, Microsoft SQL Server.
+2. NoSQL Databases
+NoSQL (Not Only SQL) databases are designed to handle unstructured, semi-structured, or large-scale data that doesn’t fit neatly into tables.
+Types of NoSQL databases include:
+Document-based (e.g., MongoDB, CouchDB)
+Key-Value Stores (e.g., Redis, DynamoDB)
+Columnar Stores (e.g., Apache Cassandra)
+Graph Databases (e.g., Neo4j)
+3. Object-Oriented Database Model
+Data is stored as objects, similar to how objects are defined in object-oriented programming (OOP). Objects contain both data and methods.
+Examples: db4o, ObjectDB.
+4. Hierarchical Model
+Data is organized in a tree-like structure with a single root and multiple levels of parent-child relationships.
+It was one of the earliest models but is now less common.
+Example: IBM’s Information Management System (IMS).
+5. Network Model
+Data is stored in a graph-like structure where records can have multiple parent and child relationships, unlike the hierarchical model, which has a strict one-to-many structure.
+Example: Integrated Data Store (IDS).
+5. Database Components
+Some key components of a typical database architecture include:
+DBMS Engine: The core service responsible for database creation, management, and data access.
+Database Schema: A blueprint that defines the structure of the database, including tables, fields, relationships, and constraints.
+Query Processor: The component responsible for interpreting and executing database queries (e.g., SQL).
+Transaction Manager: Manages transaction control and ensures that the database remains consistent (including adherence to ACID properties).
+Storage Manager: Handles the storage, retrieval, and updating of data on disk. It manages buffers, data files, and indexes.
+Backup and Recovery System: Ensures that data is regularly backed up and can be restored in case of failure.
+Security Manager: Handles user access control, authentication, and authorization to ensure that only authorized users can access or modify the data.
+In Summary:
+Database concepts refer to the essential components such as tables, keys, indexes, and DBMS, which define how data is organized and stored.
+Database architecture involves the overall design of how data and components interact, often broken into different layers (e.g., three-tier architecture) to ensure separation of concerns and scalability.
+Types of database models (relational, NoSQL, object-oriented, etc.) dictate how data is structured and queried.
+Database components include the DBMS engine, query processor, transaction manager, storage manager, and more.
