@@ -1,0 +1,179 @@
+Primary Keys and Foreign Keys
+In relational databases, primary keys and foreign keys are essential for maintaining data integrity and establishing relationships between tables. These keys help ensure that the data stored is accurate, consistent, and properly related to other data in the database.
+1. Primary Key
+A primary key is a field (or a combination of fields) in a table that uniquely identifies each row in that table. It ensures that each record is unique and cannot be duplicated. Every table in a relational database should have a primary key.
+Key Characteristics of a Primary Key:
+Uniqueness: Every value in the primary key column(s) must be unique across all rows in the table.
+Not NULL: The primary key field cannot contain NULL values, as it needs to uniquely identify each row.
+Single or Composite: The primary key can consist of a single column (simple primary key) or multiple columns (composite primary key) combined to form a unique identifier.
+The primary key is a composite primary key made up of OrderID and ProductID because the combination of both these fields must uniquely identify a record. No single column alone can guarantee uniqueness, but together, they ensure uniqueness for each order-item combination.
+2.Foreign Key
+A foreign key is a field (or a collection of fields) in one table that uniquely identifies a row in another table. It is used to establish and enforce a link between the data in two tables. The foreign key creates a relationship between the tables by pointing to the primary key of another table.
+Key Characteristics of a Foreign Key:
+References Primary Key: The foreign key in one table refers to the primary key in another table.
+Allows NULL Values: Foreign keys can have NULL values, depending on whether the relationship is optional or mandatory.
+Maintains Referential Integrity: A foreign key ensures that a value in the foreign key column must either be NULL or match a value in the referenced table’s primary key column
+
+In Summary:
+Primary Keys uniquely identify each record in a table, ensuring that every row can be referenced without ambiguity. They cannot have NULL values.
+Foreign Keys create a link between two tables by referencing the primary key of another table, ensuring that data in one table corresponds to valid data in another table. Foreign keys help enforce referential integrity by preventing orphaned records.
+
+5. SQL Basics
+SELECT: Retrieves data from one or more tables.
+
+SQL (Structured Query Language) is the standard language used for managing and manipulating relational databases. It is used to query, insert, update, and delete data, as well as to define and manage database structures.
+1. SQL Syntax
+SQL statements are made up of keywords, which are used to perform specific actions. SQL statements generally follow a basic syntax:
+COMMAND [column1, column2, ...] FROM table WHERE condition;
+Where:
+COMMAND: SQL action like SELECT, INSERT, UPDATE, or DELETE.
+column1, column2, ...: The specific columns or fields in the table.
+table: The name of the table you want to interact with.
+WHERE condition: Specifies conditions that need to be met for the query.
+2. SQL Commands Overview
+SQL can be classified into several types of commands:
+
+DML (Data Manipulation Language): Used for managing data within tables.
+SELECT: Retrieves data from one or more tables.
+INSERT: Adds new data to a table.
+UPDATE: Modifies existing data in a table.
+DELETE: Removes data from a table.
+
+DDL (Data Definition Language): Used for defining and managing database structures.
+CREATE: Creates a new table, database, index, or view.
+ALTER: Modifies the structure of an existing table (e.g., adding a column).
+DROP: Deletes a table, database, or other objects.
+
+DCL (Data Control Language): Used to control access to data in the database.
+GRANT: Gives specific privileges to a user or role.
+REVOKE: Removes privileges from a user or role.
+
+TCL (Transaction Control Language): Used for managing transactions in a database.
+COMMIT: Saves all changes made during the current transaction.
+ROLLBACK: Reverts changes made during the current transaction.
+SAVEPOINT: Sets a point within a transaction to which you can later roll back.
+3. Basic SQL Commands
+1. SELECT
+The SELECT statement is used to query the database and retrieve data from one or more tables. You can specify which columns you want to retrieve.
+Basic Syntax:
+SELECT column1, column2, ...
+FROM table_name;
+To retrieve all columns, use the wildcard *:
+SELECT * FROM table_name;
+Example:
+SELECT Name, Age
+FROM Employees;
+This query retrieves the Name and Age columns from the Employees table.
+2. WHERE Clause
+The WHERE clause filters records based on specific conditions.
+SELECT column1, column2
+FROM table_name
+WHERE condition;
+Example:
+SELECT Name, Age
+FROM Employees
+WHERE Age > 30;
+This query retrieves the names and ages of employees who are older than 30.
+3. INSERT INTO
+The INSERT INTO statement is used to add new rows to a table.
+INSERT INTO table_name (column1, column2, ...)
+VALUES (value1, value2, ...);
+Example:
+INSERT INTO Employees (Name, Age, Department)
+VALUES ('John Doe', 25, 'Sales');
+This query inserts a new employee record into the Employees table.
+4. UPDATE
+The UPDATE statement is used to modify existing records in a table.
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+UPDATE Employees
+SET Age = 26
+WHERE Name = 'John Doe';
+This query updates the age of the employee named 'John Doe' to 26.
+5. DELETE
+The DELETE statement removes one or more rows from a table.
+DELETE FROM table_name
+WHERE condition;
+DELETE FROM Employees
+WHERE Age < 18;
+This query deletes all employees who are younger than 18 from the Employees table.
+
+4. Advanced SQL Queries
+1. JOINs
+SQL JOINs are used to combine data from multiple tables based on a related column between them. There are several types of joins:
+INNER JOIN: Returns records that have matching values in both tables.
+LEFT JOIN: Returns all records from the left table and matching records from the right table, or NULL if there’s no match.
+RIGHT JOIN: Similar to LEFT JOIN, but returns all records from the right table and matching records from the left table.
+FULL JOIN: Returns records when there is a match in one of the tables.
+Example of INNER JOIN:
+SELECT Employees.Name, Orders.OrderID
+FROM Employees
+INNER JOIN Orders
+ON Employees.EmployeeID = Orders.EmployeeID;
+This query retrieves employee names and their corresponding orders using an INNER JOIN between Employees and Orders tables based on EmployeeID.
+
+2. GROUP BY and HAVING
+The GROUP BY clause groups rows that have the same values into summary rows, like "total sales per customer". The HAVING clause is used to filter records after grouping.
+SELECT column1, COUNT(*)
+FROM table_name
+GROUP BY column1
+HAVING COUNT(*) > value;
+Example:
+SELECT Department, COUNT(*)
+FROM Employees
+GROUP BY Department
+HAVING COUNT(*) > 5;
+This query returns the departments that have more than 5 employees.
+
+3. ORDER BY
+The ORDER BY clause is used to sort the result set in either ascending (ASC) or descending (DESC) order.
+SELECT column1, column2
+FROM table_name
+ORDER BY column1 [ASC|DESC];
+Example:
+SELECT Name, Age
+FROM Employees
+ORDER BY Age DESC;
+This query retrieves employee names and ages, sorted by age in descending order.
+
+5. SQL Functions
+SQL provides many built-in functions for working with data, such as:
+Aggregate Functions:
+COUNT(): Returns the number of rows.
+SUM(): Returns the sum of a numeric column.
+AVG(): Returns the average of a numeric column.
+MAX(): Returns the maximum value of a column.
+MIN(): Returns the minimum value of a column.
+Example:
+SELECT COUNT(*)
+FROM Employees;
+This query counts the total number of employees.
+
+String Functions:
+CONCAT(): Concatenates two or more strings.
+UPPER(): Converts a string to uppercase.
+LOWER(): Converts a string to lowercase.
+SUBSTRING(): Extracts a substring from a string.
+Example:
+SELECT CONCAT(FirstName, ' ', LastName)
+FROM Employees;
+This query concatenates the first and last names of employees.
+
+Date Functions:
+NOW(): Returns the current date and time.
+DATE(): Extracts the date part from a datetime value.
+YEAR(), MONTH(), DAY(): Extracts the respective part of a date.
+Example:
+SELECT YEAR(HireDate)
+FROM Employees;
+This query returns the year part of the HireDate for each employee.
+
+6. SQL Constraints
+Constraints are used to enforce data integrity in a database. Some common constraints include:
+NOT NULL: Ensures a column cannot have NULL values.
+UNIQUE: Ensures all values in a column are unique.
+PRIMARY KEY: Uniquely identifies each row in a table.
+FOREIGN KEY: Ensures data in a column corresponds to data in another table.
+CHECK: Ensures that all values in a column satisfy a specific condition.
+DEFAULT: Sets a default value for a column if no value is provided
