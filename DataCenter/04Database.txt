@@ -1,0 +1,81 @@
+Normalization
+Normalization is the process of organizing the data in a database to reduce redundancy and ensure data integrity. The goal is to separate data into distinct tables and avoid duplication. It involves breaking down large tables into smaller, more manageable ones, while maintaining relationships between them.
+Benefits of Normalization:
+Reduced data redundancy: By ensuring that data is only stored once, normalization prevents the same information from being repeated across multiple places in the database.
+Improved data integrity: Since data is stored in smaller, logically related tables, updates, inserts, and deletes are less likely to cause anomalies or inconsistencies.
+Easier maintenance: With less duplicate data, it’s easier to maintain the database.
+Normal Forms (NF):
+Normalization typically follows several stages, or "normal forms", each with increasing levels of complexity:
+1st Normal Form (1NF): Ensures that each column contains atomic (indivisible) values, and each record is unique.
+2nd Normal Form (2NF): Eliminates partial dependencies, ensuring that non-key attributes are fully dependent on the primary key.
+3rd Normal Form (3NF): Removes transitive dependencies, ensuring that non-key attributes are only dependent on the primary key.
+Boyce-Codd Normal Form (BCNF): A stricter version of 3NF that deals with certain edge cases where 3NF may not fully eliminate redundancy.
+4th and 5th Normal Forms: Deal with more advanced scenarios involving multi-valued dependencies and join dependencies.
+Denormalization
+Denormalization is the process of combining normalized tables into larger tables to improve database performance, particularly for read-heavy operations. It intentionally introduces some level of redundancy to optimize query performance.
+Benefits of Denormalization:
+Improved read performance: By reducing the need for complex joins, denormalization can speed up queries, especially for reporting or analytical purposes.
+Simplified query logic: Denormalized tables can make querying easier, as fewer joins are required to retrieve the data.
+Drawbacks of Denormalization:
+Increased data redundancy: More space is required, and maintaining consistency across redundant copies can be difficult.
+Potential for data anomalies: Redundant data may lead to update anomalies if not carefully managed.
+Harder to maintain: Since the data is duplicated, updates, inserts, and deletes may require additional logic to maintain consistency across the database.
+When to Use Normalization vs. Denormalization
+Normalization is ideal for:
+Transactional systems (OLTP), where data integrity and minimizing redundancy are critical.
+Environments with frequent updates, inserts, and deletes.
+Small-to-medium datasets.
+Denormalization is useful for:
+Reporting or analytical systems (OLAP), where fast read performance is more important than ensuring data integrity.
+Environments with complex queries that involve many joins or aggregations.
+Large datasets that benefit from optimized performance.
+
+7. Transactions in database systems are sequences of operations performed as a single unit, which either complete successfully or leave the database unchanged in case of failure. A transaction ensures that a group of operations, such as inserting, updating, or deleting records, are executed atomically, consistently, and safely.
+ACID Properties
+To maintain the integrity and reliability of a database, transactions must adhere to the ACID properties. These properties ensure that database transactions are processed reliably, even in the event of errors, power outages, or other unexpected events.
+The ACID properties are:
+Atomicity
+Consistency
+Isolation
+Durability
+Let’s break down each of these properties:
+
+1. Atomicity
+Definition: Atomicity ensures that a transaction is treated as a single, indivisible unit. It means that the transaction will either complete entirely (commit) or not at all (rollback).
+Key Point: If any part of the transaction fails, the entire transaction fails, and the database is left unchanged as if the transaction never occurred.
+Example: If a transaction involves transferring money from one bank account to another (debiting one account and crediting another), if the debit succeeds but the credit fails, the entire transaction is rolled back to maintain consistency.
+2. Consistency
+Definition: Consistency ensures that a transaction transforms the database from one valid state to another valid state, maintaining all predefined rules, constraints, and data integrity.
+Key Point: The database should always move from one consistent state to another, regardless of the transaction's outcome.
+Example: If a transaction involves inserting data into a table, consistency ensures that the data inserted complies with any constraints (e.g., not violating a unique constraint or foreign key).
+3. Isolation
+Definition: Isolation ensures that the operations of a transaction are isolated from other transactions. Even though transactions are executed concurrently, the intermediate state of a transaction is not visible to others until it is completed (committed).
+Key Point: Isolation prevents "dirty reads" (reading uncommitted data) and ensures that each transaction is unaffected by other concurrent transactions.
+Example: If two transactions are updating the same data at the same time, isolation ensures that they will not interfere with each other, and one transaction will only see the final committed result of the other.
+Isolation is typically managed through different isolation levels, such as:
+Read Uncommitted: Transactions can read uncommitted changes.
+Read Committed: A transaction can only read committed changes.
+Repeatable Read: Guarantees that if a transaction reads a value, it will get the same value if it reads again (no other transactions can change the data during the transaction).
+Serializable: The strictest level, ensuring that transactions are executed in a way that would produce the same result as if they were executed serially.
+4. Durability
+Definition: Durability ensures that once a transaction is committed, its changes are permanent, even in the event of a system crash, power failure, or hardware issue.
+Key Point: Committed transactions are stored in non-volatile storage (like a disk), ensuring that the changes will not be lost.
+Example: After a bank transfer transaction is committed, even if the server crashes immediately after, the transaction will still be reflected in the database once the system is restored.
+Example of ACID in a Transaction
+Consider a scenario where a bank needs to transfer money from Account A to Account B:
+Atomicity: The transaction will either fully complete (both debit from Account A and credit to Account B) or not happen at all.
+Consistency: The system will ensure that after the transaction, the total balance of both accounts (A and B) is correct and follows the rules, such as not allowing an account to go negative if that’s not permitted.
+Isolation: If another transaction is taking place at the same time, the operations of this transaction will not interfere with that transaction, meaning the results will be consistent as if each transaction was executed one after the other.
+Durability: Once the transaction is committed, the changes are permanent. Even if the system crashes right after the transaction is committed, the money transfer will still be reflected in the accounts once the system is back online.
+Transaction Lifecycle
+A typical transaction goes through the following phases:
+Begin: The transaction starts.
+Operations: The transaction performs operations (insert, update, delete).
+Commit: If the transaction is successful and no errors are encountered, it is committed, making all changes permanent.
+Rollback: If an error occurs during the transaction, the database rolls back to the state before the transaction began, discarding any changes made during the transaction.
+In Summary:
+ACID properties are essential to ensuring the reliability, correctness, and safety of transactions within a database system.
+Atomicity ensures that transactions are all-or-nothing.
+Consistency ensures that transactions leave the database in a valid state.
+Isolation ensures that transactions do not interfere with one another.
+Durability guarantees that committed transactions will not be lost
