@@ -1,0 +1,162 @@
+Disk Usage and Working with Multiple Files
+Disk Usage:
+df: Displays disk space usage for mounted file systems.
+du: Shows the disk usage of files and directories.
+Working with Multiple Files:
+Wildcards: Used for batch operations across multiple files (e.g., *, ?).
+find: Used to search for files based on certain criteria like name, size, or modification time.
+xargs: Passes output from one command to another for further processing.
+tar: Used for working with file archives, such as creating and extracting tarballs.
+2. Working with Processes
+Process Management:
+ps: Displays information about running processes.
+top: Provides a real-time, interactive display of processes and resource usage.
+htop: A more advanced, colorized version of top that provides detailed information about system processes.
+kill: Terminates processes by process ID (PID).
+killall: Terminates all processes with a specific name.
+nice and renice: Used to adjust the priority of processes.
+nohup: Runs a command in the background even after the user logs out.
+Background Processes:
+&: Runs a command in the background.
+fg: Brings a background process to the foreground.
+3. Basics of Networking
+Networking Commands:
+ifconfig or ip a: Displays network interface details, such as IP addresses.
+ping: Tests connectivity to another host.
+traceroute: Traces the path packets take to a remote host.
+netstat: Displays active network connections, routing tables, and network interface statistics.
+ss: A faster, more modern alternative to netstat for viewing socket statistics.
+nslookup or dig: Queries DNS information for a domain name.
+ip route: Displays or manipulates the routing table.
+wget: Downloads files from the web.
+4. VI Editor
+The VI editor is a terminal-based text editor that operates in three main modes:
+
+Normal Mode: Default mode, used for navigation and executing commands.
+Insert Mode: For inserting and editing text.
+Command Mode: For file operations such as saving, quitting, or modifying file content.
+Common tasks include:
+
+Opening, editing, saving, and quitting files.
+Navigating through the file using keybindings.
+Searching and replacing text.
+Performing various file manipulations (cut, copy, paste, etc.).
+5. Ownership and Permissions
+Linux uses a permission model to control access to files and directories:
+
+User Ownership: Each file has an owner, typically the user who created the file.
+Group Ownership: Files belong to a group, and each group can have different access permissions.
+Permissions: Determine what actions can be performed on files by users. The three main permissions are read (r), write (w), and execute (x).
+Owner: Permissions granted to the file’s owner.
+Group: Permissions granted to the file’s associated group.
+Others: Permissions granted to everyone else.
+Common file permission operations:
+
+chmod: Used to change file permissions.
+chown: Changes the ownership of a file.
+chgrp: Changes the group ownership of a file
+
+Remote Connections
+Remote connections allow you to access and control a system from a different location, usually over a network. Linux provides several tools for establishing remote connections:
+
+SSH (Secure Shell): The most common and secure method for remotely accessing a Linux machine. SSH allows encrypted communication between a client and a server, providing terminal access and remote command execution.
+
+SCP (Secure Copy): A command-line tool for securely copying files between hosts over a network using SSH.
+
+SFTP (Secure File Transfer Protocol): A secure alternative to FTP, used for transferring files over a network through an encrypted SSH connection.
+
+VNC (Virtual Network Computing): A graphical desktop-sharing system that allows remote control of a computer using a graphical interface.
+
+Telnet: An older, insecure method of accessing remote systems, now generally replaced by SSH.
+
+RDP (Remote Desktop Protocol): Used mainly on Windows systems but can be used to access Linux with the appropriate software.
+
+2. Bash (Bourne Again Shell)
+Bash is the default shell on most Linux distributions and serves as both a command-line interpreter and a scripting language. It is an enhanced version of the original Bourne Shell (sh), providing more features such as better scripting capabilities, job control, and improved interactive use.
+
+Key Features of Bash:
+Command-Line Interface: Allows users to enter and execute commands interactively.
+Scripting Language: Bash can be used to write scripts for automating tasks.
+Job Control: Bash supports background jobs and job management, allowing tasks to be run concurrently or in the background.
+Tab Completion: Automatically completes commands, filenames, and other arguments based on context.
+Bash processes input in two ways:
+
+Interactive Mode: Where a user types commands directly into the terminal.
+Non-interactive Mode: Where commands are executed in a script or from a file.
+3. Important Bash Variables
+Bash uses environment variables to store information that controls the behavior of the shell and its environment. Here are some important Bash variables:
+
+$HOME: The home directory of the current user. It's the default location where users start when they log in.
+$PATH: A colon-separated list of directories that are searched when a command is entered. It determines where the system looks for executables.
+$USER: The username of the current user.
+$PWD: The current working directory.
+$SHELL: The path to the current shell being used.
+$PS1: Defines the primary prompt string. It controls how the prompt appears in the terminal.
+$LANG: Determines the system language and locale settings.
+$TERM: Specifies the terminal type (e.g., xterm, vt100).
+$EDITOR: Specifies the default text editor for the system (used by many programs to invoke an editor).
+These variables can be referenced or modified within the shell or in scripts to control the shell's behavior.
+
+4. The Bash Logout File
+The Bash logout file is executed when a user logs out from a shell session. These files can be used to clean up or perform any tasks that need to be done after the user ends their session.
+
+~/.bash_logout: This is the default logout script for a user. When the user exits a session, commands in this file are executed. It is typically used to clear temporary files, remove history, or perform cleanup tasks.
+
+Examples of tasks often included in .bash_logout:
+Clear the terminal screen.
+Delete temporary files created during the session.
+Erase or modify shell history files to maintain privacy or security.
+5. Command Line Essentials
+The command line is a powerful interface that allows users to interact with the operating system and perform various tasks. Here are some essential concepts and commands related to the command line:
+
+Basic Command Structure:
+A command typically consists of:
+Command: The main executable or tool you want to run.
+Options: Flags or switches that modify the behavior of the command (e.g., -v for verbose).
+Arguments: The targets or data that the command will operate on (e.g., filenames or directories).
+Essential Commands:
+ls: Lists files and directories.
+cd: Changes the current directory.
+pwd: Displays the present working directory.
+cp: Copies files or directories.
+mv: Moves or renames files and directories.
+rm: Removes files or directories.
+cat: Displays the contents of a file.
+echo: Prints text or variables to the screen.
+man: Displays the manual page for a command, providing detailed information about its usage.
+history: Displays a list of previously entered commands.
+clear: Clears the terminal screen.
+exit: Exits the shell or terminates the session.
+Redirection and Pipes:
+Redirection allows you to send the output of one command to a file or another command:
+
+>: Redirects output to a file, overwriting it.
+>>: Redirects output to a file, appending to the file.
+<: Takes input from a file.
+Pipes (|) allow you to send the output of one command to another command.
+
+Example: ls | grep "txt" will list files and then filter the output to show only those containing "txt".
+Using Wildcards:
+*: Matches any string of characters, including none.
+?: Matches exactly one character.
+[]: Matches any one of the characters inside the brackets.
+Job Control:
+&: Executes a command in the background.
+bg: Resumes a suspended job in the background.
+fg: Brings a job from the background to the foreground.
+jobs: Lists the background jobs.
+kill: Terminates a process by its PID.
+File Permissions and Ownership:
+chmod: Changes file permissions.
+chown: Changes file ownership.
+chgrp: Changes group ownership of a file.
+Searching for Files:
+find: Searches for files and directories in a directory hierarchy.
+grep: Searches for specific patterns in files.
+locate: Finds files by name using a prebuilt database.
+Conclusion:
+Remote Connections enable you to access and control systems over the network, with tools like SSH, SCP, and SFTP.
+Bash is the default shell for most Linux systems, providing an interface for interacting with the system and a powerful scripting language.
+Bash Variables allow customization and control of the shell environment and behavior.
+The Bash Logout File provides a mechanism to run commands when a user logs out, often used for cleanup tasks.
+Command Line Essentials are fundamental to effective interaction with a Linux system, covering essential commands, file manipulation, job control, and process management.
