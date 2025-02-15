@@ -1,0 +1,130 @@
+File Editing in Linux
+Editing files is an essential part of working in Linux. While you can use graphical editors, much of the work in Linux is done through terminal-based text editors.
+Common text editors in Linux:
+Nano: A simple terminal-based editor, very beginner-friendly.
+To open a file: nano filename
+Basic commands:
+Ctrl + X: Exit the editor.
+Ctrl + O: Save the file.
+Ctrl + K: Cut text.
+Ctrl + U: Paste text.
+Vim: A powerful and highly customizable text editor, but with a steeper learning curve.
+To open a file: vim filename
+Basic commands:
+Press i to start editing (insert mode).
+Press Esc to return to command mode.
+:w to save changes.
+:q to quit.
+:wq to save and quit.
+
+Emacs: Another powerful text editor, often preferred by experienced users for its extensibility.
+Editing files in the terminal:
+You can edit system configuration files (e.g., /etc/hostname, /etc/apt/sources.list) using these editors.
+To open a file with root permissions (if required): sudo nano /etc/hostname
+For simple edits, nano is recommended, while vim and emacs are more suited for advanced users.
+2. Introduction to Shell Scripts
+A shell script is a file containing a series of commands that the shell (Bash or another shell) can execute. Scripts automate repetitive tasks and system management tasks.
+Basic Shell Script Structure:
+A shell script starts with the "shebang" line, which tells the system what interpreter to use. For Bash scripts, this is:
+3. Linux Security
+Linux is known for its robust security features, but it is still essential to follow good security practices.
+
+Key components of Linux security:
+File Permissions: Control access to files using the chmod, chown, and chgrp commands.
+Firewall: Linux uses firewalls (e.g., iptables or firewalld) to control incoming and outgoing network traffic.
+Check firewall status: sudo ufw status
+Allow port: sudo ufw allow 22 (for SSH)
+SELinux (Security-Enhanced Linux): A security module that provides additional security by enforcing mandatory access control policies.
+AppArmor: An alternative to SELinux, used to restrict the capabilities of applications.
+Auditd: The Linux auditing system to log security-relevant events, such as file access and user activities.
+Best practices:
+Regularly update the system: sudo apt update && sudo apt upgrade (for Debian-based distros).
+Use strong passwords and avoid using the default root account for regular activities.
+SSH key-based authentication for SSH access instead of passwords.
+Install security updates regularly.
+
+4. User and Group Creation
+In Linux, users and groups are fundamental for controlling access to resources and maintaining security.
+Creating Users:
+useradd: Used to create a new user.
+bash
+sudo useradd newuser
+To assign a password: sudo passwd newuser
+Creating Groups:
+groupadd: Creates a new group.
+bash
+sudo groupadd newgroup
+Assigning a User to a Group:
+usermod: Used to modify a user's settings, including adding them to a group.
+bash
+Copy
+sudo usermod -aG newgroup newuser
+The -aG flag appends the user to the group without removing them from other groups.
+User and Group Management:
+List users: cat /etc/passwd
+List groups: cat /etc/group
+Change user’s primary group: sudo usermod -g newgroup newuser
+5. User Ownership and Permissions
+Understanding file permissions and ownership is crucial for maintaining a secure and efficient system.
+
+File Permissions:
+Permissions for files and directories are represented as a 10-character string:
+diff
+-rwxr-xr-x
+The first character denotes file type (e.g., d for directory, - for regular file).
+The next three characters represent the owner’s permissions (r=read, w=write, x=execute).
+The second set represents the group’s permissions.
+The final set represents others’ permissions.
+Modifying Ownership and Permissions:
+chmod: Change file permissions.
+bash
+chmod 755 filename
+chown: Change the owner of a file.
+bash
+sudo chown user:group filename
+chgrp: Change the group ownership of a file.
+bash
+sudo chgrp group filename
+Special Permissions:
+Setuid (s): When set on an executable file, the file is run with the permissions of the file’s owner.
+Setgid (s): Similar to setuid, but the file is run with the permissions of the group.
+Sticky bit: Ensures only the file owner can delete files within a directory.
+6. Linux Networking
+Linux offers powerful networking tools to manage and troubleshoot network connections.
+
+Common networking commands:
+ifconfig or ip a: Shows network interfaces and their IP addresses.
+ping: Checks if a host is reachable over the network.
+Copy
+ping 192.168.1.1
+netstat: Displays network connections, routing tables, interface statistics, etc.
+ss: Similar to netstat, but faster and more modern.
+traceroute: Traces the route packets take to reach a destination.
+bash
+Copy
+traceroute google.com
+nslookup or dig: Look up DNS records.
+nslookup google.com
+Setting up a network interface:
+nmcli: NetworkManager command-line tool to configure network settings.
+ip link set eth0 up: Activates a network interface (eth0).
+
+7. Inter-Process Communication (IPC)
+Inter-process communication (IPC) allows processes to communicate with each other. In Linux, IPC mechanisms include:
+Common IPC methods:
+Pipes: Used to pass data between processes.
+Anonymous pipes: Used between related processes (e.g., parent and child).
+Named pipes (FIFOs): Used between unrelated processes.
+Message Queues: Allow processes to send and receive messages in an ordered manner.
+Shared Memory: Allows multiple processes to access the same memory space.
+Semaphores: Used to synchronize processes to avoid conflicts when accessing shared resources.
+Sockets: A more complex IPC method used for communication over networks.
+Examples of IPC in the terminal:
+Pipes:
+ls | grep "file"
+This passes the output of ls to grep to filter files.
+
+Named Pipe (FIFO):
+mkfifo mypipe
+echo "Hello" > mypipe
+cat < mypipe
