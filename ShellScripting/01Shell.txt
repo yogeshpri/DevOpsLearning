@@ -1,0 +1,484 @@
+Introduction to Shell Scripts
+A Shell script is a series of commands written in a text file for execution in a shell (command-line interface). These scripts allow for the automation of repetitive tasks and system administration activities. The shell, such as Bash (Bourne Again Shell), processes these commands in sequence.
+
+Creating a Shell Script:
+You can write a shell script in any text editor (e.g., Vim, Nano, or VSCode) and save it with a .sh extension.
+The first line of a shell script typically begins with #!/bin/bash (called a shebang) to indicate that the script should be run using the Bash shell.
+Example:
+#!/bin/bash
+echo "Hello, World!"
+
+Shell Comments
+Comments are used to explain or annotate the code. They are ignored by the shell and do not execute.
+Syntax: A comment starts with a # symbol.
+
+Example:
+# This is a comment
+echo "Hello, World!"  # This prints a message
+Shell User Input
+You can prompt users for input using the read command.
+
+Syntax:
+read variable_name
+Example:
+echo "Enter your name:"
+read name
+echo "Hello, $name!"
+
+Shell Using Variables
+Variables in Shell scripts are used to store values like strings or numbers. They do not need to be declared explicitly.
+
+Assigning values to variables:
+variable_name=value
+Example:
+greeting="Hello"
+echo "$greeting, World!"
+Accessing Variables: You use $ to access a variable.
+echo $greeting  # Prints the value stored in the variable
+
+Shell Operators
+Operators are used in shell scripts to perform operations, including arithmetic, comparisons, logical operations, etc.
+
+Arithmetic Operators:
++, -, *, /, %
+Example:
+a=10
+b=5
+sum=$((a + b))
+echo $sum  # Outputs 15
+
+Comparison Operators:
+-eq, -ne, -lt, -le, -gt, -ge (numeric comparisons)
+
+Example:
+if [ $a -gt $b ]; then
+    echo "$a is greater than $b"
+fi
+
+Logical Operators:
+&& (AND), || (OR)
+Example:
+if [ $a -gt $b ] && [ $b -lt 10 ]; then
+    echo "Condition is true"
+fi
+
+Shell Loops
+Loops in shell scripts are used to repeat a block of code multiple times.
+
+For Loop:
+for i in {1..5}
+do
+    echo "Number $i"
+done
+
+While Loop:
+count=1
+while [ $count -le 5 ]
+do
+    echo "Count is $count"
+    ((count++))
+done
+
+Until Loop:
+count=1
+until [ $count -gt 5 ]
+do
+    echo "Count is $count"
+    ((count++))
+done
+
+Shell Arguments
+Arguments are values passed to a script when it is run from the command line. They can be accessed inside the script.
+
+Accessing Arguments:
+$1, $2, etc., represent the first, second, etc., arguments passed to the script.
+$# gives the number of arguments passed.
+$@ or $* refers to all arguments.
+Example:
+#!/bin/bash
+echo "First argument: $1"
+echo "Total arguments: $#"
+Passing Arguments: You pass arguments while calling a script:
+./myscript.sh arg1 arg2
+
+8. Passing Arguments
+Arguments can be passed when invoking a script. The values of these arguments can be accessed via special variables such as $1, $2, etc.
+Example:
+./myscript.sh Hello World
+
+In the script:
+echo "Argument 1: $1"  # Outputs "Hello"
+echo "Argument 2: $2"  # Outputs "World"
+
+Shell Conditions
+Conditions allow the script to make decisions and execute specific code based on certain tests.
+Basic Syntax:
+if [ condition ]
+then
+    command
+fi
+
+Example:
+if [ $a -eq $b ]; then
+    echo "a and b are equal"
+else
+    echo "a and b are not equal"
+fi
+
+Shell File Test Operators
+These operators are used to test properties of files such as whether they exist, are readable, etc.
+Common Test Operators:
+-e: Check if the file exists.
+-f: Check if it’s a regular file.
+-d: Check if it’s a directory.
+-r: Check if the file is readable.
+-w: Check if the file is writable.
+
+Example:
+if [ -f "file.txt" ]; then
+    echo "file.txt exists"
+fi
+
+Shell Advanced Operators
+In addition to basic operators, advanced operators are used for more complex operations.
+
+String Operators:
+= for equality.
+!= for inequality.
+Example:
+if [ "$name" = "Alice" ]; then
+    echo "Hello, Alice!"
+fi
+
+File Operators:
+-s: File exists and is not empty.
+-x: File is executable.
+
+Shell Arrays
+Arrays in Shell are used to store multiple values under one variable name.
+
+Defining Arrays:
+arr=("apple" "banana" "cherry")
+
+Accessing Array Elements:
+echo ${arr[0]}  # Outputs "apple"
+
+Looping Through Arrays:
+for fruit in "${arr[@]}"
+do
+    echo $fruit
+done
+
+Foreground and Background Modes
+Foreground Mode: The command runs directly in the terminal.
+
+Background Mode: The command runs in the background, allowing you to continue using the terminal.
+
+Exit Status
+Every command in a shell returns an exit status (also called a return code). A status of 0 means success, while non-zero values indicate failure.
+Check Exit Status:
+echo $?  # Outputs the exit status of the last command
+
+Standard Input and Output
+Standard Input (stdin) is where commands receive input, usually from the keyboard.
+Standard Output (stdout) is where commands send their output, typically the terminal.
+You can redirect input and output:
+
+> redirects output to a file.
+
+>> appends output to a file.
+
+< redirects input from a file.
+
+Example:
+echo "Hello" > file.txt  # Redirects output to file.txt
+cat < file.txt           # Reads from file.txt
+
+Special Files
+Special files refer to device files or files that interact with system resources, such as:
+/dev/null: Discards output.
+/dev/tty: Refers to the terminal.
+
+Foundation and Loops
+Understanding the foundation of loops, conditionals, and variable usage is key to mastering shell scripting. Loops are used to repeat tasks, and conditionals are used to make decisions in scripts.
+
+Piping
+Pipes (|) allow the output of one command to be passed as input to another command.
+
+Example:
+ls | grep "file"  # List files and filter those that contain "file"
+
+Add Advanced Commands
+Some advanced commands used in shell scripting:
+
+grep: Search for patterns in a file or input.
+
+awk: A powerful tool for text processing and pattern matching.
+
+sed: A stream editor used for text manipulation.
+
+Example of using sed:
+sed 's/old/new/g' file.txt  # Replaces "old" with "new" in file.txt
+
+Introduction to Bash Scripting
+Bash scripting refers to writing a sequence of commands for the Bash shell to automate tasks. It is one of the most popular scripting languages in Unix/Linux environments. A Bash script is simply a text file containing a series of commands that are executed in sequence by the Bash interpreter.
+
+Bash stands for Bourne Again SHell, and it is a command-line interface used in most Unix-like operating systems, such as Linux and macOS.
+
+Basic Commands
+Bash scripts typically consist of common shell commands that you can execute directly in the terminal. Here are a few examples:
+
+echo: Displays text or variables.
+
+echo "Hello, World!"
+
+ls: Lists the contents of a directory.
+
+ls -l
+cd: Changes the current directory.
+
+cd /home/user
+
+pwd: Prints the current directory path.
+
+Writing Your First Bash Script
+A Bash script is just a text file with a series of shell commands. Let's walk through writing your first script.
+
+Steps:
+Create a new text file and give it a .sh extension (e.g., my_first_script.sh).
+Add the shebang (#!/bin/bash) at the top to specify the Bash interpreter.
+Add the commands you want the script to execute.
+
+Example:
+#!/bin/bash
+echo "Hello, World!"
+
+Save the file and make it executable with chmod:
+chmod +x my_first_script.sh
+
+Run the script:
+./my_first_script.sh
+
+Variables
+Variables are used to store data in a script. Variables do not require a declaration type in Bash.
+
+Assigning Variables:
+
+my_var="Hello, World!"
+
+Accessing Variables: To access the value stored in a variable, you use the $ symbol.
+
+echo $my_var  # Outputs: Hello, World!
+
+Reading User Input into Variables:
+echo "Enter your name:"
+read name
+echo "Hello, $name!"
+
+Positional Arguments
+Positional arguments are arguments that are passed to the script when it is executed from the command line. These arguments are accessed using $1, $2, $3, etc.
+
+Example:
+#!/bin/bash
+echo "First argument: $1"
+echo "Second argument: $2"
+
+Run the script as:
+./script.sh Hello World
+Output:
+
+First argument: Hello
+Second argument: World
+
+Special Variables:
+
+$#: The number of arguments passed to the script.
+$@: All the arguments passed to the script.
+$?: The exit status of the last command.
+
+Output/Input Redirection
+Output Redirection:
+
+You can redirect the output of a command to a file using >.
+
+echo "Hello, World!" > output.txt
+To append to a file, use >>:
+
+echo "This is a new line" >> output.txt
+Input Redirection:
+
+You can redirect input from a file using <:
+
+sort < unsorted_file.txt
+
+Piping (|) allows the output of one command to be used as input to another:
+
+cat file.txt | grep "pattern"
+
+Test Operators
+Test operators are used to perform various checks in conditional expressions. They are used inside if, while, until, etc.
+
+File Test Operators:
+
+-e: Checks if the file exists.
+-f: Checks if it’s a regular file.
+-d: Checks if it’s a directory.
+-r: Checks if it’s readable.
+
+Example:
+if [ -f "file.txt" ]; then
+    echo "File exists!"
+fi
+String Comparison:
+
+=: Checks if strings are equal.
+!=: Checks if strings are not equal.
+
+if [ "$name" = "Alice" ]; then
+    echo "Welcome, Alice!"
+fi
+
+Numeric Comparison:
+
+-eq: Equal.
+-ne: Not equal.
+-lt: Less than.
+-gt: Greater than.
+
+if [ $a -gt $b ]; then
+    echo "$a is greater than $b"
+fi
+
+If/Elif/Else
+if, elif, and else are used for conditional branching in Bash scripts.
+Syntax:
+if [ condition ]; then
+    command1
+elif [ another_condition ]; then
+    command2
+else
+    command3
+fi
+
+Example:
+if [ $a -gt $b ]; then
+    echo "$a is greater than $b"
+elif [ $a -eq $b ]; then
+    echo "$a is equal to $b"
+else
+    echo "$a is less than $b"
+fi
+
+Case Statements
+case statements are used to match a variable against several patterns. It’s like a switch-case in other languages.
+
+Syntax:
+case $variable in
+    pattern1)
+        command1
+        ;;
+    pattern2)
+        command2
+        ;;
+    *)
+        command3
+        ;;
+esac
+
+Example:
+case $fruit in
+    apple)
+        echo "This is an apple"
+        ;;
+    banana)
+        echo "This is a banana"
+        ;;
+    *)
+        echo "Unknown fruit"
+        ;;
+esac
+
+Arrays
+Arrays in Bash allow you to store multiple values in a single variable. The elements are accessed using indices.
+
+Defining Arrays:
+
+fruits=("apple" "banana" "cherry")
+Accessing Array Elements:
+
+echo ${fruits[0]}  # Outputs: apple
+Looping Through Arrays:
+
+for fruit in "${fruits[@]}"; do
+    echo $fruit
+done
+
+Loops
+Loops are used to repeat commands multiple times.
+
+For Loop:
+for i in {1..5}; do
+    echo "Number $i"
+done
+
+While Loop:
+count=1
+while [ $count -le 5 ]; do
+    echo "Count: $count"
+    ((count++))
+done
+
+Until Loop:
+count=1
+until [ $count -gt 5 ]; do
+    echo "Count: $count"
+    ((count++))
+done
+
+Functions
+Functions are used to group commands and reuse them. You can define functions to make your script more modular.
+
+Defining a Function:
+my_function() {
+    echo "This is a function!"
+}
+
+Calling a Function:
+my_function  # Outputs: This is a function!
+
+Function with Arguments:
+greet() {
+    echo "Hello, $1!"
+}
+greet "Alice"  # Outputs: Hello, Alice!
+
+Exit Codes
+Exit codes (return codes) are used to indicate whether a command was successful. A return code of 0 indicates success, while a non-zero return code indicates failure.
+
+Example:
+if command; then
+    echo "Success"
+else
+    echo "Failure"
+fi
+
+Accessing Exit Status:
+echo $?  # Shows the exit status of the last command
+
+AWK
+AWK is a powerful text-processing tool used for pattern scanning and processing.
+
+Basic AWK Example:
+echo "Name Age" | awk '{print $1}'  # Outputs: Name
+
+Using AWK to Process Files:
+awk '{print $1, $2}' file.txt  # Prints the first and second column of each line
+
+SED
+SED is a stream editor used to perform basic text transformations on an input stream.
+
+Basic SED Example:
+echo "Hello World" | sed 's/World/Bash/'  # Replaces World with Bash
+
+Using SED to Modify Files:
+sed -i 's/old_string/new_string/' file.txt  # In-place replace in file.txt
