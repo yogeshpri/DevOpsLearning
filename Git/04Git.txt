@@ -1,0 +1,94 @@
+Tracking Remote Branches
+When you clone a repository or push a branch to a remote for the first time, Git automatically sets up tracking branches. A tracking branch is a local branch that is linked to a remote branch, and it allows you to interact with the remote repository more easily.
+Setting Up Tracking Branches:
+When you clone a repository, the default local branch (usually main) automatically tracks the remote branch of the same name.
+
+What is a Pull Request (PR)?
+A pull request is a way to propose changes in a Git repository. It allows a developer to notify others about the changes they’ve made in their branch or fork and request that those changes be merged into another branch of the repository.
+Key Features of a PR:
+Propose Changes: A PR allows a user to propose changes made in their own branch to be merged into another branch (typically the main development branch).
+Review: Other team members can review the proposed changes, leave comments, ask for modifications, or approve the PR.
+Merge: Once the PR is reviewed and approved, it can be merged into the target branch. This is typically done by a repository maintainer or the person responsible for the project.
+Track Changes: PRs show a list of all commits and differences (diffs) between the source branch and the target branch, which helps in reviewing the changes.
+Workflow of a Pull Request:
+Fork or Create a Branch: If you're working on a collaborative project, you typically fork the repository or create a new branch to work on a feature or bugfix.
+Make Changes: You implement your changes locally, commit them, and push the changes to your fork or remote branch.
+Open a Pull Request: After pushing your changes, you create a pull request on the Git hosting platform (like GitHub) to propose merging your changes into the target repository (e.g., main branch).
+Review: Other collaborators review your pull request, request changes, or approve it.
+Merge: Once the PR is approved, it can be merged into the target branch.
+
+Reviewing and Merging a Pull Request
+Once the pull request is created, other team members (or the repository maintainer) can review the changes. The review process typically includes:
+Commenting on Specific Lines: Reviewers can comment on specific lines of code within the pull request.
+Requesting Changes: If the reviewer finds issues or improvements, they can request changes, which will require the contributor to update the pull request.
+Approving: Once the changes are reviewed and approved, the PR can be merged.
+To merge the PR:
+Review the Changes: Review all the commits and changes made in the pull request.
+Resolve Any Conflicts: If there are conflicts, they need to be resolved before merging (we will discuss this in the next section).
+Merge the PR: Once everything is in order, the PR can be merged using the "Merge" button. This will combine the changes from the PR into the target branch (usually main)
+Conclusion
+Pull Requests (PRs) are a key part of collaborative workflows in Git, enabling developers to propose, review, and merge changes into a shared repository.
+Merge Conflicts occur when Git cannot automatically merge changes due to conflicting modifications in the same file or lines of code. Resolving these conflicts requires manually editing the files and staging the changes.
+Rebasing is another method of updating your branch by replaying your changes on top of another branch, which can help avoid or reduce conflicts by keeping a cleaner history.
+Regularly communicating with team members and ensuring good Git practices can minimize merge conflicts and ensure a smoother development process.
+
+GitLab Basics
+GitLab is a popular web-based DevOps platform that provides source code management (SCM) using Git, as well as features for continuous integration (CI), continuous deployment (CD), project management, and collaboration. GitLab integrates the entire DevOps lifecycle, making it an all-in-one tool for software development, testing, deployment, and monitoring.
+In this guide, we'll cover the fundamental concepts and features of GitLab, including:
+GitLab Overview
+Creating and Managing Repositories
+GitLab Workflows: Issues, Merge Requests, and CI/CD
+User Roles and Permissions
+GitLab CI/CD Basics
+Integrations and Webhooks
+1. GitLab Overview
+GitLab is a web-based Git repository manager that provides tools for:
+Version Control: GitLab uses Git as its underlying version control system for source code management.
+Collaboration: GitLab provides features like merge requests, issues, code reviews, and discussions to facilitate collaboration among developers.
+CI/CD: GitLab has built-in Continuous Integration (CI) and Continuous Deployment (CD) capabilities, enabling automated testing, building, and deployment of your applications.
+Project Management: GitLab includes tools for issue tracking, milestones, and labels to manage tasks, bugs, and features.
+Security: GitLab offers security features like vulnerability scanning, security audits, and container scanning to ensure the code is safe and compliant.
+Monitoring: GitLab provides monitoring capabilities for your deployed applications.
+GitLab can be used both as a cloud-hosted solution (GitLab.com) and as a self-hosted solution (GitLab CE/EE).
+
+2. Creating and Managing Repositories
+Creating a New Repository
+Sign In to GitLab: First, log in to your GitLab account.
+Create a New Project:
+Click on the "New project" button on the dashboard.
+You will be prompted to either create a new repository or import an existing one. You can create a project from scratch or import a project from GitHub, Bitbucket, or any other Git repository.
+Configure Project Details:
+Set the project name, description, and visibility (public, private, or internal).
+Optionally, initialize the repository with a README or add a .gitignore file.
+Clone the Repository: Once the project is created, you can clone the repository to your local machine using the provided Git clone URL:
+git clone https://gitlab.com/username/project-name.git
+
+GitLab Repository Structure
+A GitLab repository typically includes the following:
+Branches: GitLab supports Git branches to manage different versions of code.
+Commits: Git commits represent changes to the code, including who made them and when.
+Merge Requests: Merge requests (MRs) are used to propose changes to a repository, enabling code review and discussion.
+Issues: Issues are used for bug tracking, feature requests, and general project management.
+Wiki: GitLab provides an integrated wiki for documentation purposes.
+
+3. GitLab Workflows: Issues, Merge Requests, and CI/CD
+Issues
+GitLab provides a built-in issue tracker to manage tasks, bugs, feature requests, and other project management activities. You can:
+Create Issues: Issues can be created by team members to track bugs, tasks, or new features.
+Assign Issues: Issues can be assigned to specific team members.
+Labels: Labels are used to categorize issues (e.g., "bug", "enhancement", "urgent").
+Milestones: Milestones help organize issues into phases, like sprints or release cycles.
+Issue Boards: Visualize the progress of issues using kanban-style boards.
+
+Merge Requests (MRs)
+A Merge Request is a way to propose code changes. When a developer pushes changes to a feature branch, they create a merge request to merge their changes into the target branch (e.g., main or develop).
+Creating a Merge Request:
+Push your changes to a branch in your GitLab repository.
+Navigate to the Merge Requests tab in your GitLab project.
+Click on "New merge request".
+Select the source branch and the target branch.
+Fill in a title and description, then submit the merge request for review.
+Review and Approval:
+The team reviews the changes, provides feedback, and approves the merge request if everything is fine.
+If there are conflicts, you can resolve them directly in GitLab or locally.
+Once approved, the MR can be merged.
