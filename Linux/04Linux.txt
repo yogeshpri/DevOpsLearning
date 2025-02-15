@@ -1,0 +1,89 @@
+What is WSL 2?
+WSL 2 (Windows Subsystem for Linux version 2) is the second version of the Windows Subsystem for Linux. It provides a full Linux kernel running within Windows, offering a much more integrated experience for developers working with Linux tools and applications on Windows systems.
+
+Key features of WSL 2:
+
+Linux Kernel: Unlike WSL 1, which translated Linux system calls into Windows calls, WSL 2 runs a real Linux kernel in a lightweight virtual machine (VM). This provides full compatibility with Linux applications and better performance.
+File System Performance: WSL 2 offers improved performance, especially for file-intensive tasks. It uses a Virtual Machine (VM) to better handle file system calls and interactions.
+Full System Call Compatibility: WSL 2 supports more system calls, meaning more applications that depend on Linux-specific kernel features (like Docker) work seamlessly.
+Docker Support: WSL 2 allows Docker Desktop to run Linux containers natively on Windows without needing a separate VM or Docker Machine.
+Network Integration: WSL 2 improves network integration, making it easier for Linux tools and Windows applications to communicate with each other.
+2. Exercise - Install and Set Up Linux on Windows with WSL
+To install and set up WSL 2 on your Windows machine, follow these steps:
+
+Step-by-Step Installation:
+Check Windows Version: Ensure you are running Windows 10 (version 1903 or later) or Windows 11.
+
+Open Settings > System > About to check your Windows version.
+Enable WSL and Virtual Machine Platform:
+
+Open PowerShell as Administrator and run the following commands:
+powershell
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+Set WSL 2 as Default Version:
+
+In the same PowerShell window, run the following command to set WSL 2 as the default version for new distributions:
+powershell
+wsl --set-default-version 2
+Install a Linux Distribution:
+
+Open the Microsoft Store and search for a Linux distribution (e.g., Ubuntu, Debian, Kali, etc.).
+Select your preferred distribution and click Install.
+Initialize Linux Distribution:
+
+After installation, launch the Linux distribution from the Start Menu.
+The first time you open it, it will take a few minutes to set up, and you’ll be prompted to create a user account and set a password for your Linux environment.
+Update WSL 2 (if needed):
+
+To update WSL 2 or install the latest kernel version, you may need to download the latest WSL 2 Linux kernel update package from Microsoft and install it: Download WSL 2 kernel update.
+3. Overview of a WSL Development Workflow
+Using WSL 2 for development provides a seamless workflow that integrates Linux-based tools and Windows applications. Here’s a general WSL development workflow:
+
+Set up the development environment:
+
+Install development tools like compilers, text editors (e.g., VSCode, Vim, Emacs), and version control systems (e.g., Git).
+Use your preferred Linux distribution to install libraries, frameworks, and dependencies (e.g., Node.js, Python, Docker, etc.).
+File Editing:
+
+You can edit code directly within the WSL file system using Linux-based tools, or use a Windows-based editor like VSCode.
+VSCode can be integrated with WSL using the Remote - WSL extension, allowing you to open and edit code stored in your Linux environment from within Windows.
+Run Commands and Scripts:
+
+You can run shell scripts, compile code, and run applications directly in the Linux terminal provided by WSL.
+Docker can also be used to run containers in WSL 2, as Docker Desktop for Windows integrates with WSL 2 to run Linux containers natively.
+Cross-Platform Interoperability:
+
+WSL allows you to access Windows files from within Linux and vice versa.
+You can use the Windows file system within WSL, but it's generally recommended to store code and projects within the Linux file system (accessible via /home/username), as this offers better performance.
+You can also invoke Windows tools from the Linux terminal and run Linux tools from the Windows environment.
+Version Control:
+
+Git is available in WSL, and you can run Git commands as you would on a typical Linux machine.
+With WSL, it is easy to integrate your workflow into GitHub or GitLab repositories for version control, whether you’re using Linux-based or Windows-based Git clients.
+4. Run Basic WSL Commands
+Here are some basic WSL commands you’ll use to interact with the system:
+
+wsl: Launches the default WSL distribution. You can execute Linux commands directly from PowerShell or Command Prompt using wsl <command> (e.g., wsl ls).
+
+wsl --list or wsl -l: Lists all the installed WSL distributions on your system.
+
+wsl --set-version <distro> <version>: Change the WSL version of a particular distribution (e.g., wsl --set-version Ubuntu-20.04 2).
+
+wsl --set-default <distro>: Set the default WSL distribution to use when running the wsl command.
+
+wsl --shutdown: Stops all running WSL instances. Useful for troubleshooting or resetting WSL.
+
+wsl --export <distro> <file.tar>: Exports a WSL distribution to a .tar file for backup or migration purposes.
+
+wsl --import <distro> <install-location> <file.tar>: Imports a previously exported WSL distribution from a .tar file.
+
+wsl --update: Updates the WSL components and kernel.
+
+wsl --help: Displays a list of available WSL commands and options.
+
+Conclusion:
+WSL 2 enables a full Linux kernel running on Windows, making Linux tools and environments more compatible with Windows-based workflows.
+Setting up WSL involves enabling features in Windows, installing a Linux distribution, and setting WSL 2 as the default version for new installations.
+The development workflow in WSL 2 allows you to work in a Linux environment on Windows, with seamless interoperability between Windows and Linux tools.
+Basic WSL commands help you manage the WSL environment, switch between Linux distributions, and interact with your Linux development setup.
