@@ -1,0 +1,69 @@
+Repository Security and Management
+Effective repository management and security are essential to ensuring that the codebase is protected, accessible, and manageable.
+1. Branch Protection Rules
+Branch protection helps maintain the integrity of key branches (like main) by preventing unauthorized changes. You can enforce:
+Code reviews before merging.
+Status checks (such as continuous integration tests) must pass before a merge.
+Required pull request reviews: Ensure that a specific number of approvals are given before a branch can be merged.
+2. Security Policies and Vulnerability Scanning
+GitHub provides security advisories and automatic vulnerability scanning to alert users about potential security issues in the repository. Admins can configure Dependabot to automatically create pull requests for security updates.
+3. Audit Logs
+For organizations using GitHub Enterprise, audit logs provide a detailed record of user activity within the organization, such as repository access, changes, and administrative actions.
+4. Enforcing 2FA for Extra Security
+For extra protection, admins can enforce two-factor authentication (2FA) for all members and collaborators within the organization to prevent unauthorized access.
+5. Managing Access with GitHub Apps and Integrations
+Admins can extend the functionality of their repositories by using GitHub Apps and third-party integrations. These tools can automate tasks, enhance security, and facilitate CI/CD pipelines.
+Conclusion
+GitHub administration is essential for maintaining an organized, secure, and efficient development workflow.
+
+Administrators manage:
+User roles and permissions at the organization, team, and repository levels.
+Authentication and security practices to safeguard repositories and organizations.
+Collaboration through team-level administration and repository management.
+
+What are Git Hooks?
+Git hooks are scripts that Git executes before or after certain events, such as committing changes, receiving pushes, or merging branches. They are used to automate and enforce certain tasks within a Git repository, such as checking code quality, ensuring commit message formats, or notifying team members about changes. Git hooks help maintain consistency and improve collaboration within a project.
+
+Common Git Hooks
+pre-commit
+Purpose: This hook is triggered before a commit is made. It allows you to perform checks on your changes before the commit is finalized.
+Use Case: Checking commit messages for spelling errors, running linters, or performing unit tests.
+pre-receive
+Purpose: This hook is triggered on the remote repository before the pushed commits are accepted. It allows you to validate the incoming commits before they are applied.
+Use Case: Enforcing project coding standards, ensuring that commits meet certain criteria (e.g., no large files, no breaking changes).
+post-commit
+Purpose: This hook is triggered after a commit is made. It is often used for notifying team members or updating external systems.
+Use Case: Sending email or SMS notifications to team members whenever a new commit is made.
+post-receive
+Purpose: This hook is triggered on the remote repository after a push has been successfully received. It is typically used for deployment tasks.
+Use Case: Automatically pushing the code to production or triggering continuous integration (CI) pipelines after a commit is pushed.
+
+Git Config: Command Introduction
+git config is a Git command used to set and manage configuration options that control Git’s behavior. These configurations are used to customize various aspects of Git, such as user information, merge tools, formatting, and more. Configurations can be applied at different levels, and you can easily modify them using git config.
+Git Config Levels and Files
+Git configurations can be defined at three levels:
+
+System level:
+This configuration applies to all users on the system and all repositories.
+File location: /etc/gitconfig (on Linux/Mac) or C:\ProgramData\Git\config (on Windows).
+You can set system-wide configurations with the --system flag.
+
+Global level:
+This configuration applies to the current user and affects all repositories of that user.
+File location: ~/.gitconfig or ~/.config/git/config.
+You can set global configurations with the --global flag
+
+Local level:
+This configuration applies only to the current repository.
+File location: .git/config within the repository.
+You can set local configurations with the --local flag (this is the default if no flag is specified).
+
+Formatting & Whitespace
+You can configure Git to handle formatting and whitespace in different ways. Git provides several settings for controlling how it deals with formatting and whitespace issues.
+
+Whitespace Handling:
+Git has several whitespace-related configuration options, such as whether to warn or fix whitespace errors.
+Auto-Correcting Whitespace:
+You can make Git automatically correct some common whitespace issues when committing.
+Formatting Commit Messages:
+You can enforce commit message styles using hooks or a commit template. For example, a template might require a specific format for commit messages.
