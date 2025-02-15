@@ -1,0 +1,78 @@
+CI/CD in GitLab
+GitLab has built-in Continuous Integration and Continuous Deployment features, allowing you to automate testing, building, and deploying your projects.
+GitLab CI/CD Pipeline: A pipeline is a series of automated steps that run when code is pushed to the repository.
+Pipelines are defined in a .gitlab-ci.yml file located in the root of the repository.
+The .gitlab-ci.yml file contains the configuration for the pipeline, including stages like:
+build: Compile or package the application.
+test: Run unit tests or integration tests.
+deploy: Deploy the application to production, staging, or another environment.
+Triggers: You can set triggers to start pipelines automatically when code is pushed or when a merge request is created.
+Runners: GitLab uses runners to execute the pipeline jobs. GitLab provides shared runners, or you can set up your own runners.
+4. User Roles and Permissions
+GitLab allows you to assign different roles and permissions to users within a project. This helps control access and responsibilities across the project.
+GitLab Roles:
+Guest:
+Can view project information.
+Cannot push code or manage issues.
+Reporter:
+Can view code, issues, and pull requests.
+Can create issues and leave comments.
+Developer:
+Can push code, create merge requests, and work with branches.
+Can create and comment on issues.
+Maintainer:
+Can manage project settings, including permissions and repository settings.
+Can merge code and manage CI/CD pipelines.
+Owner (for group-level projects):
+Can manage everything in the project, including settings, members, and repositories.
+Permissions are granted at both the project and group levels, and users may have different roles in different projects or groups.
+
+5. GitLab CI/CD Basics
+CI/CD Pipeline Example
+Continuous Integration (CI): This involves automatically testing your code whenever a change is pushed to the repository. For example, running unit tests after each commit.
+Continuous Deployment (CD): After passing tests, the code can be automatically deployed to production or a staging environment.
+A typical .gitlab-ci.yml file might define stages such as build, test, and deploy.
+
+6. Integrations and Webhooks
+Integrating with External Services
+GitLab can be integrated with external tools such as:
+Slack: Notify your team about new commits, issues, or merge requests.
+Jira: Link issues from GitLab with Jira tickets.
+Docker: Build and deploy Docker containers as part of your CI/CD pipeline.
+Kubernetes: Deploy to Kubernetes clusters directly from GitLab.
+Setting Up Webhooks
+GitLab supports webhooks to notify external systems of specific events (e.g., when a commit is pushed or a merge request is created). To set up a webhook:
+
+Go to your GitLab repository.
+Navigate to Settings > Webhooks.
+Enter the URL of the service you want to notify.
+Select the events that should trigger the webhook.
+Conclusion
+GitLab is an all-in-one platform for source code management and DevOps. It integrates version control, CI/CD, issue tracking, and collaboration into a single interface. Key features include:
+Repositories: Manage and collaborate on code.
+Merge Requests: Propose, review, and merge changes.
+CI/CD Pipelines: Automate testing and deployment.
+User Roles: Control access and permissions within projects.
+Integrations: Connect GitLab to external services like Slack, Jira, and Docker.
+
+Git Large File Storage (Git LFS) is an extension for Git that improves handling of large files, such as audio, video, images, datasets, or any binary files, that would otherwise slow down the repository or make it difficult to manage. Git is primarily designed to handle source code, which consists of plain text files, but large binary files do not work efficiently with Git's default mechanism.
+Git LFS replaces large files in your Git repository with small pointers, while the actual file content is stored in a separate location, often on a Git hosting service such as GitHub, GitLab, or Bitbucket.
+What Problem Does Git LFS Solve?
+By default, when you add large files (like images, videos, or compiled binaries) to a Git repository, Git stores the entire file directly in the repository's history. As a result:
+The repository can become huge and slow to clone or fetch.
+The repository size can grow quickly because Git keeps all versions of all files, including large ones, in its history.
+Slow performance: Pulling, pushing, and cloning operations can become slower over time due to the size of the repository.
+Git LFS addresses these issues by storing large files outside the Git repository and replacing them with lightweight references (pointers) within the Git repository.
+
+Benefits of Git LFS
+Smaller Repositories: Git LFS replaces large files with lightweight pointers, reducing the size of the Git repository itself. This leads to faster clone, pull, and fetch operations.
+Improved Performance: Since large files are stored externally, operations like fetching or pushing only retrieve or upload the relevant large files, improving performance.
+Preserving Git’s Version Control Features: Git LFS allows you to version large files, similar to how Git tracks text files. You can view the history of large files, compare versions, and roll back changes.
+Seamless Integration: Git LFS works with all standard Git operations and integrates seamlessly with Git hosting services like GitHub, GitLab, Bitbucket, etc.
+
+Installation: Install Git LFS via a package manager (Homebrew, apt, etc.) and initialize it using git lfs install.
+Track Files: Use git lfs track "*.filetype" or edit the .gitattributes file to specify which file types should be managed by Git LFS.
+Untrack Files: Use git lfs untrack or manually edit .gitattributes to stop tracking files with LFS.
+Locking Files: Use git lfs lock and git lfs unlock to prevent concurrent edits of large files.
+Push and Pull: Git LFS automatically handles the uploading and downloading of large files during regular Git operations, making it easy to work with large binary files in your project.
+
