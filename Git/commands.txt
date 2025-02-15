@@ -1,0 +1,170 @@
+mkdir stash
+  230  git ibit
+  231  git init
+  232  pwd
+  233  cd stash
+  234  git init
+  235  echo "hi" >> file1.txt
+  236  echo "hello" >> file2.txt
+  237  git remote add origin
+  238  git remote add origin git remote add origin git@github.com:aniruddh030502/Stash.git
+  239  git remote add origin git@github.com:aniruddh030502/Stash.git
+  240  git branch -M main
+  241  git remote add origin git@github.com:aniruddh030502/Stash.git
+  242  git push -u origin master
+  243  git push -u origin main
+  244  git branch -M master
+  245  git push -u origin main
+  246  git push -u origin master
+  247  git remote add origin git@github.com:aniruddh030502/Stash.git
+  248  git push -u origin master
+  249  git branch -M main
+  250  git push -u origin main
+  251  git add .
+  252  git commit -m"F1"
+  253  git push -u origin main
+  254  git pull
+  255  cat file1.txt
+  256  git pull
+  257  cat file1.txt
+  258  echo "welcome" >> file1.txt
+  259  git pull
+  260  cat file1.txt
+  261  echo "welcome" > file1.txt
+  262  cat file
+  263  git status
+  264  cat file1.txt
+  265  git pull
+  266  cat file1.txt
+  267  cat file2.txt
+  268  git stash list
+  269  git stash pop
+  270  git add .
+  271  git commit -m "file1 changes"
+  272  git push
+  273  echo "ff" >file1.txt
+  274  git pull
+  275  echo "asssdsd" > file1.txt
+  276  git pull
+  277  git stash save "first stash"
+  278  git status
+  279  cat file1.txt
+  280  git pull
+  281  cat file1.txt
+  282  git stash list
+  283  git stash show
+  284  git stash show stash@{0}
+  285  git stash show -p stash@{0}
+  286  cat file1.txt
+  295  cd revert/
+  296  git init
+  297  echo "hello world" >> file.txt
+  298  git add .
+  299  git commit -m"m1"
+  300  echo "h2" >> file.txt
+  301  git add .
+  302  git commit -m"m2"
+  303  echo "h3" >> file.txt
+  304  git add .
+  305  git commit -m "h3" file.txt
+  306  cat file.txt
+  307  git log --oneline
+  308  git revert HEAD~2
+  309  git status
+  310  cat file.txt
+  311  git restore HEAD
+  312  git add .
+  313  git commit -m"M4"
+  314  git revert HEAD
+  315  git status
+  316  git log --oneline
+  317  echo "onemore" >> file.txt
+  318  git add .
+  319  git commit -m"M4"
+  320  echo "onemore2" >> file.txt
+  321  git add .
+  322  git commit -m"M5"
+  323  cat file.txt
+  324  git log --oneline
+  325  git revert HEAD
+  326  git log --oneline
+  327  cat file.txt
+  328  git revert HEAD~1
+  329  git log --oneline
+  330  echo "m6" >> file.txt
+  331  git add .
+  332  git commit -m"M6"
+  333  echo "m7" >> file.txt
+  334  git add .
+  335  git commit -m"M7"
+  336  echo "m8" >> file.txt
+  337  git add .
+  338  git commit -m"M8"
+  339  echo "nn" >> file2.txt
+  340  git add .
+  341  git commit -m"M9"
+  342  echo "nnn" >> file3.txt
+  343  git add .
+  344  git commit -m"M10"
+  345  git revert HEAD~2
+  346  git log --oneline
+  347  ls
+  348  cat file.txt
+  349  git revert HEAD~1
+  350  ls
+  351  git HEAD
+  352  cd ..
+  353  clear
+  354  mkdir Reset
+  355  cd Reset
+  356  git init
+  357  echo "k1" >> file.txt
+  358  git add .
+  359  git diff
+  360  git diff -staged
+  361  git diff --staged
+  362  git commit -m"k1"
+  363  git diff --staged
+  364  git log --oneline
+  365  git reset --soft HEAD
+  366  git diff --staged
+  367  git reset --mixed HEAD
+  368  git status
+  369  git diff --staged
+  370  echo "2" >> file2.txt
+  371  git add .
+  372  git commit -m"c2"
+  373  echo "3" >> file3.txt
+  374  git add .
+  375  git commit -m"c3"
+  376  echo "4" >> file4.txt
+  377  git add .
+  378  git commit -m"c4"
+  379  git log --oneline
+  380  git reset soft HEAD
+  381  git reset --soft HEAD
+  382  git status
+  383  ls
+  384  git reset --mixed HEAD~1
+  385  git status
+  386  git log  --oneline
+  387  git reset --hard HEAD~1
+  388  git log  --oneline
+  389  git diff
+  390  git diff --cached
+  391  git reset --mixed HEAD
+  392  git status
+  393  ls
+  394  git diff --staged
+  395  git diff
+  396  git log --oneline
+  397  git reset --mixed HEAD~1
+  398  git diff
+  399  git diff --staged
+  400  git log --oneline
+  401  git status
+  402  ls
+  403  git diff
+  404  git add .
+  405  git status
+  406  git reset --hard HEAD~1
